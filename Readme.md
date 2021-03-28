@@ -16,8 +16,10 @@ Run the application ```Server.exe```.
 > make
 ```
 
-Default port of the server is ```8000```
+Default port of the server is ```5000```
 
 ### GUI
 
-GUI is available. You can find more information on the repository ```Jack-GVDL/dashboard```.
+GUI is available. You can find more information on the repository [Jack-GVDL/dashboard](https://github.com/Jack-GVDL/dashboard).
+
+![](./Document/Dashboard.jpg)
