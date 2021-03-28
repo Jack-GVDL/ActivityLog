@@ -2,16 +2,22 @@
 
 ## How to use it
 
+### Server
+
 To start the server
 
-### Windows
+#### Windows
 
 Run the application ```Server.exe```.
 
-### Linux
+#### Linux
 
 ```bash
 > make
 ```
 
-GUI is availabe for Windows' user. The application is ```./Dashboard/Dashboard.exe```
+Default port of the server is ```8000```
+
+### GUI
+
+GUI is available. You can find more information on the repository ```Jack-GVDL/dashboard```.
