@@ -22,4 +22,4 @@ Default port of the server is ```5000```
 
 GUI is available. You can find more information on the repository [Jack-GVDL/dashboard](https://github.com/Jack-GVDL/dashboard).
 
-![](./Document/Dashboard.jpg)
+![](Dashboard.jpg)
