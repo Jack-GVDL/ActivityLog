@@ -9,12 +9,10 @@ from LogEvent import *
 
 
 # Data
-# TODO: find a way to remove this ugly thing
 control_log: 		LogControl 			= LogControl()
 control_todo:		Control_LogTodo		= Control_LogTodo()
 
-data_control_log:	List[LogControl]		= [control_log]
-data_control_todo:	List[Control_LogTodo]	= [control_todo]
+path_save = ""
 
 
 # Operation
@@ -25,6 +23,23 @@ log.disabled = True
 
 
 # Function
+# main
+def Server_main(
+	control_log_:	LogControl,
+	control_todo_:	Control_LogTodo,
+	port:			int = 5000
+) -> None:
+	
+	# control
+	global control_log, control_todo, path_save
+
+	control_log	 = control_log_
+	control_todo = control_todo_
+
+	# run
+	app.run(port=port)
+
+
 # utility
 def convertDate_Str_List(x: str, separator="_") -> List[int]:
 	return [int(item) for item in x.split("_")][:3]
@@ -598,3 +613,8 @@ def configSubTask():
 
 	# ----- return -----
 	return "{}"
+
+
+# Operation
+if __name__ == "__main__":
+	raise RuntimeError

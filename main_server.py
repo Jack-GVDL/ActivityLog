@@ -1,26 +1,48 @@
-from shutil import copyfile
-from Network.Server_LogEvent import data_control_log, data_control_todo, app
+from typing import *
+import json
+from Network.Server_LogEvent import Server_main
+from LogEvent.LogEvent import LogControl
+from LogEvent.LogTodo import Control_LogTodo
 
 
 # Data
-file_production:	str	= "./Data/Schedule_2021_Server.json"
-file_testing:		str	= "./Data/Schedule_2021_Test.json"
+# ...
 
-file_todo_production:	str = "./Data/Schedule_2021_Todo_Server.json"
-file_todo_testing:		str = "./Data/Schedule_2021_Todo_Test.json"
 
-# copy data from production to testing environment
-# copyfile(file_production, file_testing)  # (src, dst)
+# Function
+def main() -> None:
+    # ----- config -----
+    # read config
+    with open("./Config_Server.json", "r") as f:
+        data = json.load(f)
 
-# control log
-data_control_log[0].file = file_production
-# data_control_log[0].file = file_testing
-data_control_log[0].load()
+    # get path
+    path_log  = data["Path_Log"]
+    path_todo = data["Path_Todo"]
 
-data_control_todo[0].file = file_todo_production
-# data_control_todo[0].file = file_todo_testing
-data_control_todo[0].load()
+    # ----- control -----
+    # create data_log
+    control_log     = LogControl()
+    control_todo    = Control_LogTodo()
+
+    # try to read data from json
+    control_log.file  = path_log
+    control_todo.file = path_todo
+
+    control_log.load()
+    control_todo.load()
+
+    # ----- server -----
+    # start server
+    Server_main(
+        control_log,
+        control_todo
+    )
 
 
 # Operation
-app.run()
+if __name__ != "__main__":
+	raise RuntimeError
+
+
+main()
