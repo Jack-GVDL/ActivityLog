@@ -1,10 +1,6 @@
 # Activity Log
 
-## How to use it
-
-### Server
-
-To start the server
+## Setup
 
 #### Windows
 
